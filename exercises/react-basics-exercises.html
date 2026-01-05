@@ -15,11 +15,19 @@
 
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">
-    const currentDate = dayjs().format('MMMM D');
+    const time = <p>Current time: {dayjs().format('HH:mm:ss')}</p>
 
     const container = document.querySelector('.js-container');
-    const date = <p>Today is {currentDate}</p>
-    ReactDOM.createRoot(container).render(date);
+    const root = ReactDOM.createRoot(container);
+    root.render(time);
+
+    setInterval(() => {
+      const currentTime = dayjs().format('HH:mm:ss');
+      const time = <p>Current time: {currentTime}</p>
+
+      root.render(time);
+    }, 1000);
+    
   </script>
 </body>
 
