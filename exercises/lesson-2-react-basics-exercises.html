@@ -15,18 +15,24 @@
 
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">
-    const time = <p>Current time: {dayjs().format('HH:mm:ss')}</p>
+    function App() {
+      return (
+        <>
+          <p>Hello, this is my website.</p>
+          <div>
+            <input placeholder="Email" /> 
+          </div>
+          <div>
+            <input type="password" placeholder="Password" /> 
+          </div>
+          <button>Login</button>
+          <button>Sign up</button>
+        </>
+      )
+    }
 
     const container = document.querySelector('.js-container');
-    const root = ReactDOM.createRoot(container);
-    root.render(time);
-
-    setInterval(() => {
-      const currentTime = dayjs().format('HH:mm:ss');
-      const time = <p>Current time: {currentTime}</p>
-
-      root.render(time);
-    }, 1000);
+    ReactDOM.createRoot(container).render(<App />);
     
   </script>
 </body>
