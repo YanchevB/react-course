@@ -20,12 +20,12 @@
         <>
           <p>{product}</p>
           {discountPrice ? (
-            <p><del>Price: ${price}</del></p>
+            <>
+              <p><del>Price: ${price}</del></p>
+              <p>Discount price: ${discountPrice}</p>
+            </>
           ) : (
             <p>Price: ${price}</p>
-          )}
-          {discountPrice && (
-            <p>Discount price: ${discountPrice}</p>
           )}
           <button>Add to Cart</button>
         </>
