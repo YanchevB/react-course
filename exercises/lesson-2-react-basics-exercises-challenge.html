@@ -19,7 +19,11 @@
       return (
         <>
           <p>{product}</p>
-          <p>Price: ${price}</p>
+          {discountPrice ? (
+            <p><del>Price: ${price}</del></p>
+          ) : (
+            <p>Price: ${price}</p>
+          )}
           {discountPrice && (
             <p>Discount price: ${discountPrice}</p>
           )}
