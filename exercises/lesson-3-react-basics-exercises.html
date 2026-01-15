@@ -16,7 +16,7 @@
   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   <script type="text/babel">
   
-    function App() {
+    function Counter() {
       const [count, setCount] = React.useState(0);
 
       function increaseCount() {
@@ -27,6 +27,15 @@
         <button onClick={increaseCount}>
           Clicked {count} {count === 1 ? 'time' : 'times'}
         </button>
+      )
+    }
+
+    function App() {
+      return (
+        <>
+          <Counter />
+          <Counter />
+        </>
       )
     }
 
