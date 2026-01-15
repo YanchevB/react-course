@@ -24,9 +24,9 @@
       }
 
       return (
-        <>
-          <button onClick={increaseCount}>Clicked {count} times</button>
-        </>
+        <button onClick={increaseCount}>
+          Clicked {count} {count === 1 ? 'time' : 'times'}
+        </button>
       )
     }
 
