@@ -32,6 +32,8 @@
             }
           ]
 
+          setInputText('');
+
           setChatMessages(newChatMessages);
 
           const response = await Chatbot.getResponseAsync(inputText);
@@ -43,11 +45,9 @@
               id: crypto.randomUUID()
             }
           ]);
-
-          setInputText('');
         }
 
-        function keyDownSendMessage(e) {
+        function handleKeyDown(e) {
           if (e.key === 'Enter') {
             sendMessage();
           } else if (e.key === 'Escape') {
@@ -62,7 +62,7 @@
               size="30" 
               onChange={saveInputText}
               value={inputText}
-              onKeyDown={keyDownSendMessage}
+              onKeyDown={handleKeyDown}
             />
             <button
               onClick={sendMessage}  
