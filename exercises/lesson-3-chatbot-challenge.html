@@ -47,6 +47,14 @@
           setInputText('');
         }
 
+        function keyDownSendMessage(e) {
+          if (e.key === 'Enter') {
+            sendMessage();
+          } else if (e.key === 'Escape') {
+            setInputText('');
+          }
+        }
+
         return (
           <>
             <input 
@@ -54,6 +62,7 @@
               size="30" 
               onChange={saveInputText}
               value={inputText}
+              onKeyDown={keyDownSendMessage}
             />
             <button
               onClick={sendMessage}  
