@@ -17,13 +17,20 @@
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState('');
+        const [isLoading, setIsLoading] = React.useState(false);
 
         function saveInputText(e) {
           setInputText(e.target.value);
         }
 
         async function sendMessage() {
-           setInputText('');
+          if (isLoading || inputText === '') {
+            return;
+          }
+
+          setIsLoading(true);
+
+          setInputText('');
 
           const newChatMessages = [
             ...chatMessages,
@@ -53,6 +60,8 @@
               id: crypto.randomUUID()
             }
           ]);
+
+          setIsLoading(false);
         }
 
         function handleKeyDown(e) {
@@ -73,8 +82,11 @@
               onKeyDown={handleKeyDown}
             />
             <button
-              onClick={sendMessage}  
-            >Send</button>
+              disabled={isLoading}
+              onClick={sendMessage}
+            >
+              {isLoading ? 'Loading...' : 'Send'}
+            </button>
           </>
         );
       }
